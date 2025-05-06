@@ -1,19 +1,72 @@
+using System.Collections;
 using UnityEngine;
 
 public class Beetle_Stats : MonoBehaviour
 {
     [SerializeField] private int Hunger = 100;
     [SerializeField] public float speed;
-    [SerializeField] private int detectRange = 10;
+    [SerializeField] private int detectRange;
+    [SerializeField] private bool starving = false;
+    [SerializeField] private float dyingTime = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        speed = Random.Range(0, 100);
+        speed = Random.Range(3, 20);
+        detectRange = Random.Range(3, 20);
     }
 
     // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
+        StartCoroutine(Hungry());
+
+    }
+
+    private void Update()
+    {
+        if (Hunger <= 0)
+        {
+            starving = true;
+            Starved();
+        }
+        
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision != null && collision.collider.CompareTag("Food"))
+        {
+            Hunger += 1000;
+        }
+    }
+
+    private void Beetle_Breeding()
+    {
+
+    }
+    private void Starved()
+    {
+        if (starving)
+        {
+            StartCoroutine(dying());
+            IEnumerator dying()
+            {
+                yield return new WaitForSeconds(dyingTime);
+                Destroy(gameObject);
+
+            }
+        }
+        else return;
+    }
+
+    IEnumerator Hungry()
+    {
+        yield return null;
+        Hunger--;
+        yield return new WaitForSeconds(1f/speed);
+        StartCoroutine(Hungry());
         
     }
 }

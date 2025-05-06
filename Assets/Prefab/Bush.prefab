@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2346706845480064991}
   - component: {fileID: 3811041942881964228}
   - component: {fileID: 2615288064416729626}
+  - component: {fileID: 4480092313174275926}
   m_Layer: 0
   m_Name: Bush
-  m_TagString: Untagged
+  m_TagString: Bush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4480092313174275926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351960986501870142}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51050db695ee1684bb8893afb049bf9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 852127527456003346, guid: bcb8054ae647ed94a831c8e784b0e406, type: 3}
+  bush: {fileID: 351960986501870142}
+  food_Amount: 3
+  spawnTime: 3
+  food_range: 3
