@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Beetle_Stats : MonoBehaviour
@@ -34,11 +35,24 @@ public class Beetle_Stats : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision != null && collision.collider.CompareTag("Food"))
+        if (other != null && other.gameObject.CompareTag("Food"))
         {
-            Hunger += 1000;
+
+            if (Hunger != 100 && Hunger < 100)
+            {
+                Hunger += 10;
+            }
+            else return;
+            
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other != null && other.gameObject.CompareTag("Food"))
+        {
+            Destroy(other.gameObject);
         }
     }
 
