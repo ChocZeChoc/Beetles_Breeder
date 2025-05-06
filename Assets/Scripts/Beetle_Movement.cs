@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class Beetle_Movement : MonoBehaviour
 {
+    private Beetle_Stats stats;
     private NavMeshAgent Beetle;
     private int xPosHigh = 50;
     private int zPosHigh = 50;
@@ -10,6 +11,8 @@ public class Beetle_Movement : MonoBehaviour
     void Start()
     {
         Beetle = GetComponent<NavMeshAgent>();
+        stats = GetComponent<Beetle_Stats>();
+        Beetle.speed = stats.speed;
         PickDestination();
     }
 
