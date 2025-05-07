@@ -116,7 +116,7 @@ public class Beetle_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine(RemoveFood());
         //Debug.Log(Beetle.destination.ToString());
         if (Beetle.remainingDistance < 0.1f)
         {
@@ -145,7 +145,19 @@ public class Beetle_Movement : MonoBehaviour
         breedingTimer--;
         yield return new WaitForSeconds(1);
         StartCoroutine(BreedingCooldown());
+
     }
     
+    IEnumerator RemoveFood()
+    {
+        yield return new WaitForSeconds(5);
+        for (int i = 0;i < Insfood.Count;i++)
+        {
+            if(Insfood[i] == null )
+            {
+                Insfood.RemoveAt(i);
+            }
+        }
+    }
 
 }

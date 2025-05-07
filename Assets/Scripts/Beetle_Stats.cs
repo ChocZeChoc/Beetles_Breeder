@@ -14,8 +14,8 @@ public class Beetle_Stats : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        speed = Random.Range(3, 20);
-        detectRange = Random.Range(3, 10);
+        speed = Random.Range(1, 50);
+        detectRange = Random.Range(1, 15);
     }
 
     // Update is called once per frame
@@ -89,7 +89,7 @@ public class Beetle_Stats : MonoBehaviour
         {
             yield return null;
             Hunger--;
-            yield return new WaitForSeconds(1f / speed);
+            yield return new WaitForSeconds(1f); // speed);
             StartCoroutine(Living());
         }
     }

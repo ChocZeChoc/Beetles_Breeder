@@ -12,7 +12,7 @@ public class Bush_Spawning : MonoBehaviour
     public List<GameObject> Insfood = new List<GameObject>();
     List<GameObject> Insbush = new List<GameObject>();
 
-    private int bush_Amount = 100;
+    public int bush_Amount = 10;
     private int food_Amount = 3;
 
     private float foodRate = 10;
@@ -31,7 +31,7 @@ public class Bush_Spawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine(RemoveFood());
     }
 
     void SpawnBush()
@@ -72,4 +72,15 @@ public class Bush_Spawning : MonoBehaviour
         return InsObj.transform.position;
     }
 
+    IEnumerator RemoveFood()
+    {
+        yield return new WaitForSeconds(5);
+        for (int i = 0; i < Insfood.Count; i++)
+        {
+            if (Insfood[i] == null)
+            {
+                Insfood.RemoveAt(i);
+            }
+        }
+    }
 }
