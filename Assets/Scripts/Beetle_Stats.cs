@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Beetle_Stats : MonoBehaviour
 {
-    [SerializeField] public int Hunger = 100;
-    [SerializeField] public float speed;
-    [SerializeField] public int detectRange;
-    [SerializeField] private bool starving = false;
-    [SerializeField] private float dyingTime = 5f;
+    public int Hunger = 100;
+    public float speed;
+    public float detectRange;
+    private bool starving = false;
+    private float dyingTime = 20f;
+    public float age = 0;
+    private float maxAge = 60;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         speed = Random.Range(3, 20);
-        detectRange = Random.Range(3, 20);
+        detectRange = Random.Range(3, 10);
     }
 
     // Update is called once per frame
 
     private void Start()
     {
-        StartCoroutine(Hungry());
-
+        StartCoroutine(Living());
     }
 
     private void Update()
@@ -31,8 +32,16 @@ public class Beetle_Stats : MonoBehaviour
             starving = true;
             Starved();
         }
+        if (Hunger > 0) 
+        {
+        starving= false;
+        }
+        age = age + Time.deltaTime;
+        if (age >= maxAge)
+        {
+            Destroy(gameObject);
+        }
         
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +49,7 @@ public class Beetle_Stats : MonoBehaviour
         if (other != null && other.gameObject.CompareTag("Food"))
         {
 
-            if (Hunger != 100 && Hunger < 100)
+            if (Hunger < 100)
             {
                 Hunger += 10;
             }
@@ -71,12 +80,17 @@ public class Beetle_Stats : MonoBehaviour
         else return;
     }
 
-    IEnumerator Hungry()
+    IEnumerator Living()
     {
-        yield return null;
-        Hunger--;
-        yield return new WaitForSeconds(1f/speed);
-        StartCoroutine(Hungry());
-        
+        if(Hunger > 0)
+        {
+            yield return null;
+            Hunger--;
+            yield return new WaitForSeconds(1f / speed);
+            StartCoroutine(Living());
+        }
     }
+
+
+
 }

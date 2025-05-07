@@ -7,10 +7,7 @@ public class Beetle_Spawning : MonoBehaviour
     [SerializeField] private GameObject females;
     [SerializeField] private int startBeetleAmount = 10;
 
-    [SerializeField] private float xPosLow = -50f;
-    [SerializeField] private float zPosLow = -50f;
-    [SerializeField] private float xPosHigh = 50f;
-    [SerializeField] private float zPosHigh = 50f;
+    [SerializeField] private float Range = 50F;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,16 +27,16 @@ public class Beetle_Spawning : MonoBehaviour
 
         for (int i = 0; i < amount/2; i++)
         {
-            float spawnPointX = Random.Range(xPosLow, xPosHigh);
-            float spawnPointZ = Random.Range(zPosLow, zPosHigh);
-            Vector3 spawnPoint = new Vector3(spawnPointX,5, spawnPointZ);
+            float spawnPointX = Random.Range(-Range,Range);
+            float spawnPointZ = Random.Range(-Range, Range);
+            Vector3 spawnPoint = new Vector3(spawnPointX,-0.25f, spawnPointZ);
             Instantiate(males,spawnPoint,Quaternion.identity);
         }
         for (int i = 0; i < amount / 2; i++)
         {
-            float spawnPointX = Random.Range(xPosLow, xPosHigh);
-            float spawnPointZ = Random.Range(zPosLow, zPosHigh);
-            Vector3 spawnPoint = new Vector3(spawnPointX, 5, spawnPointZ);
+            float spawnPointX = Random.Range(-Range, Range);
+            float spawnPointZ = Random.Range(-Range, Range);
+            Vector3 spawnPoint = new Vector3(spawnPointX, -0.25f, spawnPointZ);
             Instantiate(females, spawnPoint, Quaternion.identity);
         }
     }

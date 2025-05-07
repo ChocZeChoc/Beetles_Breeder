@@ -256,54 +256,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &401449540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 401449542}
-  - component: {fileID: 401449541}
-  m_Layer: 0
-  m_Name: BushSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &401449541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401449540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbffbd16f4ecd944c80d843e208463c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bush: {fileID: 351960986501870142, guid: 048071bfc9def0f4c9b546ece0cfd7e7, type: 3}
-  food: {fileID: 852127527456003346, guid: bcb8054ae647ed94a831c8e784b0e406, type: 3}
-  bushSpawner: {fileID: 401449540}
-  Insfood: []
---- !u!4 &401449542
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401449540}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5138944, y: -9.535603, z: 1.9142027}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,10 +474,7 @@ MonoBehaviour:
   males: {fileID: 700446733517527620, guid: f6bc03dbb7bf0a04dad0bf189a83678a, type: 3}
   females: {fileID: 4220663903659185308, guid: c3b1d2e2be96e3d4d9eb6c60f81b424f, type: 3}
   startBeetleAmount: 10
-  xPosLow: -50
-  zPosLow: -50
-  xPosHigh: 50
-  zPosHigh: 50
+  Range: 50
 --- !u!4 &1452732812
 Transform:
   m_ObjectHideFlags: 0
@@ -553,6 +502,7 @@ GameObject:
   - component: {fileID: 1762321371}
   - component: {fileID: 1762321370}
   - component: {fileID: 1762321369}
+  - component: {fileID: 1762321373}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -644,12 +594,101 @@ Transform:
   m_GameObject: {fileID: 1762321368}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.42, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1762321373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762321368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: -334000983
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 55
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.6666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
+--- !u!1001 &7058412869677712755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1351219323160973318, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_Name
+      value: BushSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5138944
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.535603
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.9142027
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -658,5 +697,5 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 542934693}
   - {fileID: 1452732812}
-  - {fileID: 401449542}
+  - {fileID: 7058412869677712755}
   - {fileID: 1762321372}

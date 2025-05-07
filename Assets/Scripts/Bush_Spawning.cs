@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bush_Spawning : MonoBehaviour
@@ -11,7 +12,7 @@ public class Bush_Spawning : MonoBehaviour
     public List<GameObject> Insfood = new List<GameObject>();
     List<GameObject> Insbush = new List<GameObject>();
 
-    private int bush_Amount = 20;
+    private int bush_Amount = 100;
     private int food_Amount = 3;
 
     private float foodRate = 10;
@@ -58,7 +59,7 @@ public class Bush_Spawning : MonoBehaviour
         {
             Vector3 Spawnpoint = Randomizer(0, 0, bush_Height,food_Height) + new Vector3(GivePos(Insbush[Bushes]).x, 0, GivePos(Insbush[Bushes]).z);
             Insfood.Insert(j, Instantiate(food, Spawnpoint, Quaternion.identity));
-            //GivePos(Insfood[j]);
+            
         }
         yield return new WaitForSeconds(foodRate);
         //GivePos(Insfood);
