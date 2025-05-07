@@ -1,5 +1,6 @@
 
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bush_Spawning : MonoBehaviour
@@ -7,19 +8,23 @@ public class Bush_Spawning : MonoBehaviour
     [SerializeField] private GameObject bush;
     [SerializeField] private GameObject food;
     [SerializeField] private GameObject bushSpawner;
-    [SerializeField] private int bush_Amount = 20;
-    [SerializeField] private int food_Amount = 100;
+    [SerializeField] private GameObject Insfood;
+    List<GameObject> Insbush = new List<GameObject>();
 
-    [SerializeField] private float foodRate = 10;
+    private int bush_Amount = 20;
+    private int food_Amount = 3;
 
-    [SerializeField] private float bush_Height = 0.7f;
+    private float foodRate = 10;
+    private float bush_Height = 0.7f;
+    private float food_Height = 1.5f;
 
-    [SerializeField] private float Spawnrange = 50f;
+    private float Spawnrange = 50f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         SpawnBush();
-        StartCoroutine(FoodSpawn());
+        
+        
     }
 
     // Update is called once per frame
@@ -33,7 +38,8 @@ public class Bush_Spawning : MonoBehaviour
         for (int i = 0;i < bush_Amount;i++)
         {
             Vector3 Spawnpoint = Randomizer(0,0, Spawnrange,bush_Height);
-            Instantiate(bush,Spawnpoint, Quaternion.identity);
+            Insbush.Insert(i, Instantiate(bush, Spawnpoint, Quaternion.identity));
+            StartCoroutine(FoodSpawn(i));
         }
     }
 
@@ -45,16 +51,23 @@ public class Bush_Spawning : MonoBehaviour
         return new Vector3(x, y, z);
     }
     
-    IEnumerator FoodSpawn()
+    IEnumerator FoodSpawn(int Bushes)
     {
         
-        for (int i = 0; i < food_Amount; i++)
+        for (int j = 0; j < food_Amount; j++)
         {
-            Vector3 Spawnpoint = Randomizer(0, 0, Spawnrange,0);
-            Instantiate(food, Spawnpoint, Quaternion.identity);
+            Vector3 Spawnpoint = Randomizer(0, 0, bush_Height,food_Height) + new Vector3(GivePos(Insbush[Bushes]).x, 0, GivePos(Insbush[Bushes]).z);
+            Insfood = Instantiate(food, Spawnpoint, Quaternion.identity);
         }
         yield return new WaitForSeconds(foodRate);
-        StartCoroutine(FoodSpawn());
+        //GivePos(Insfood);
+        StartCoroutine(FoodSpawn(Bushes));
+        
+    }
+
+    public Vector3 GivePos(GameObject InsObj)
+    {
+        return InsObj.transform.position;
     }
 
 }

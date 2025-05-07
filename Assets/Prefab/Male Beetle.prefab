@@ -151,8 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Beetle: {fileID: 2920480250585038130}
-  xPosHigh: 50
   Beetle_Stats: {fileID: 9141130577101141373}
+  currentBeetle: {fileID: 700446733517527620}
+  food: {fileID: 852127527456003346, guid: bcb8054ae647ed94a831c8e784b0e406, type: 3}
   grass: {fileID: 0}
 --- !u!114 &9141130577101141373
 MonoBehaviour:
@@ -170,6 +171,7 @@ MonoBehaviour:
   speed: 3.5
   detectRange: 10
   starving: 0
+  dyingTime: 5
 --- !u!54 &4707665112747258279
 Rigidbody:
   m_ObjectHideFlags: 0

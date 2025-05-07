@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Beetle_Stats : MonoBehaviour
 {
-    [SerializeField] private int Hunger = 100;
+    [SerializeField] public int Hunger = 100;
     [SerializeField] public float speed;
-    [SerializeField] private int detectRange;
+    [SerializeField] public int detectRange;
     [SerializeField] private bool starving = false;
     [SerializeField] private float dyingTime = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,10 +56,6 @@ public class Beetle_Stats : MonoBehaviour
         }
     }
 
-    private void Beetle_Breeding()
-    {
-
-    }
     private void Starved()
     {
         if (starving)
