@@ -457,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1452732811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,9 +640,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 972226836217552353, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: bush_Amount
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1351219323160973318, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
       propertyPath: m_Name
       value: BushSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351219323160973318, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9168983681058586781, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
       propertyPath: m_LocalPosition.x

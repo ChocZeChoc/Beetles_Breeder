@@ -89,7 +89,7 @@ public class Beetle_Stats : MonoBehaviour
         {
             yield return null;
             Hunger--;
-            yield return new WaitForSeconds(1f); // speed);
+            yield return new WaitForSeconds(1f/speed); 
             StartCoroutine(Living());
         }
     }
