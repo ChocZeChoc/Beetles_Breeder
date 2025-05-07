@@ -70,14 +70,17 @@ public class Beetle_Stats : MonoBehaviour
         if (starving)
         {
             StartCoroutine(dying());
-            IEnumerator dying()
-            {
-                yield return new WaitForSeconds(dyingTime);
-                Destroy(gameObject);
-
-            }
         }
-        else return;
+        else if (!starving) 
+        {
+            StopCoroutine(dying());
+        }
+        IEnumerator dying()
+        {
+            yield return new WaitForSeconds(dyingTime);
+            Destroy(gameObject);
+
+        }
     }
 
     IEnumerator Living()
