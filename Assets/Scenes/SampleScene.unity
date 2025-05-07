@@ -288,12 +288,7 @@ MonoBehaviour:
   bush: {fileID: 351960986501870142, guid: 048071bfc9def0f4c9b546ece0cfd7e7, type: 3}
   food: {fileID: 852127527456003346, guid: bcb8054ae647ed94a831c8e784b0e406, type: 3}
   bushSpawner: {fileID: 401449540}
-  bush_Amount: 10
-  bush_Height: 0.7
-  xPosLow: -50
-  zPosLow: -50
-  xPosHigh: 50
-  zPosHigh: 50
+  Insfood: []
 --- !u!4 &401449542
 Transform:
   m_ObjectHideFlags: 0
