@@ -8,7 +8,7 @@ public class Bush_Spawning : MonoBehaviour
     [SerializeField] private GameObject bush;
     [SerializeField] private GameObject food;
     [SerializeField] private GameObject bushSpawner;
-    [SerializeField] private GameObject Insfood;
+    public List<GameObject> Insfood = new List<GameObject>();
     List<GameObject> Insbush = new List<GameObject>();
 
     private int bush_Amount = 20;
@@ -57,7 +57,8 @@ public class Bush_Spawning : MonoBehaviour
         for (int j = 0; j < food_Amount; j++)
         {
             Vector3 Spawnpoint = Randomizer(0, 0, bush_Height,food_Height) + new Vector3(GivePos(Insbush[Bushes]).x, 0, GivePos(Insbush[Bushes]).z);
-            Insfood = Instantiate(food, Spawnpoint, Quaternion.identity);
+            Insfood.Insert(j, Instantiate(food, Spawnpoint, Quaternion.identity));
+            //GivePos(Insfood[j]);
         }
         yield return new WaitForSeconds(foodRate);
         //GivePos(Insfood);
