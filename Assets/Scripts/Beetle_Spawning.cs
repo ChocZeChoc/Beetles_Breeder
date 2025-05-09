@@ -9,6 +9,7 @@ public class Beetle_Spawning : MonoBehaviour
 
     [SerializeField] private float Range = 50F;
 
+    public GameObject Sim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,14 +31,14 @@ public class Beetle_Spawning : MonoBehaviour
             float spawnPointX = Random.Range(-Range,Range);
             float spawnPointZ = Random.Range(-Range, Range);
             Vector3 spawnPoint = new Vector3(spawnPointX,-0.25f, spawnPointZ);
-            Instantiate(males,spawnPoint,Quaternion.identity);
+            Instantiate(males,spawnPoint,Quaternion.identity,Sim.transform);
         }
         for (int i = 0; i < amount / 2; i++)
         {
             float spawnPointX = Random.Range(-Range, Range);
             float spawnPointZ = Random.Range(-Range, Range);
             Vector3 spawnPoint = new Vector3(spawnPointX, -0.25f, spawnPointZ);
-            Instantiate(females, spawnPoint, Quaternion.identity);
+            Instantiate(females, spawnPoint, Quaternion.identity, Sim.transform);
         }
     }
 }

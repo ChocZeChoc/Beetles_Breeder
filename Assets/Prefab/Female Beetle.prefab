@@ -302,6 +302,8 @@ MonoBehaviour:
   kids:
   - {fileID: 700446733517527620, guid: f6bc03dbb7bf0a04dad0bf189a83678a, type: 3}
   - {fileID: 4220663903659185308}
+  agent: {fileID: 0}
+  Sim: {fileID: 0}
 --- !u!1 &5621260766753398481
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,12 +17,15 @@ public class Breeding : MonoBehaviour
 
     private Vector3 BeetlePos;
     public NavMeshAgent agent;
+
+    public GameObject Sim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         lookforfood = GetComponent<LookForFood>();
         Stats = GetComponent<Beetle_Stats>();
         agent = GetComponent<NavMeshAgent>();
+        Sim = GameObject.Find("Beetles");
         StartCoroutine(BreedingCooldown());
 
     }
@@ -41,7 +44,7 @@ public class Breeding : MonoBehaviour
     {
         if (breedingTimer <= 0)
         {
-            kid = Instantiate(kids[Random.Range(0, kids.Length)], currentPos, Quaternion.identity);
+            kid = Instantiate(kids[Random.Range(0, kids.Length)], currentPos, Quaternion.identity,Sim.transform);
             kid.GetComponent<Beetle_Stats>().speed = Random.Range(Stats.speed - Mutation, Stats.speed + Mutation);
             kid.GetComponent<Beetle_Stats>().detectRange = Random.Range(Stats.detectRange - Mutation, Stats.detectRange + Mutation);
             kid.GetComponent<Beetle_Stats>().Hunger = 30;

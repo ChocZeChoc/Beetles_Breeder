@@ -20,6 +20,9 @@ public class Bush_Spawning : MonoBehaviour
     private float food_Height = 1.5f;
 
     private float Spawnrange = 45f;
+
+    public GameObject Sim_Food;
+    public GameObject Sim_Bush;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -39,7 +42,7 @@ public class Bush_Spawning : MonoBehaviour
         for (int i = 0;i < bush_Amount;i++)
         {
             Vector3 Spawnpoint = Randomizer(0,0, Spawnrange,bush_Height);
-            Insbush.Insert(i, Instantiate(bush, Spawnpoint, Quaternion.identity));
+            Insbush.Insert(i, Instantiate(bush, Spawnpoint, Quaternion.identity,Sim_Bush.transform));
             StartCoroutine(FoodSpawn(i));
         }
     }
@@ -58,7 +61,7 @@ public class Bush_Spawning : MonoBehaviour
         for (int j = 0; j < food_Amount; j++)
         {
             Vector3 Spawnpoint = Randomizer(0, 0, bush_Height,food_Height) + new Vector3(GivePos(Insbush[Bushes]).x, 0, GivePos(Insbush[Bushes]).z);
-            Insfood.Insert(j, Instantiate(food, Spawnpoint, Quaternion.identity));
+            Insfood.Insert(j, Instantiate(food, Spawnpoint, Quaternion.identity,Sim_Food.transform));
             
         }
         yield return new WaitForSeconds(foodRate);
