@@ -12,14 +12,14 @@ public class Bush_Spawning : MonoBehaviour
     public List<GameObject> Insfood = new List<GameObject>();
     List<GameObject> Insbush = new List<GameObject>();
 
-    public int bush_Amount = 10;
+    public int bush_Amount = 30;
     private int food_Amount = 3;
 
     private float foodRate = 10;
     private float bush_Height = 0.7f;
     private float food_Height = 1.5f;
 
-    private float Spawnrange = 50f;
+    private float Spawnrange = 45f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {

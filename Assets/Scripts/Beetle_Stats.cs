@@ -34,7 +34,8 @@ public class Beetle_Stats : MonoBehaviour
         }
         if (Hunger > 0) 
         {
-        starving= false;
+            starving= false;
+            Starved();
         }
         age = age + Time.deltaTime;
         if (age >= maxAge)
@@ -52,18 +53,13 @@ public class Beetle_Stats : MonoBehaviour
             if (Hunger < 100)
             {
                 Hunger += 10;
+                
             }
             else return;
-            
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other != null && other.gameObject.CompareTag("Food"))
-        {
             Destroy(other.gameObject);
         }
     }
+    
 
     private void Starved()
     {

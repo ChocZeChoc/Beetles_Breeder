@@ -99,9 +99,10 @@ GameObject:
   - component: {fileID: 2334743044372191796}
   - component: {fileID: 2330763125670321834}
   - component: {fileID: 6068678730430867567}
-  - component: {fileID: 807780441203266058}
   - component: {fileID: 1854431931656254605}
   - component: {fileID: 1456835572174747757}
+  - component: {fileID: -3297721700157294972}
+  - component: {fileID: 3963300792144779070}
   m_Layer: 8
   m_Name: Female Beetle
   m_TagString: Beetle
@@ -224,27 +225,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &807780441203266058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4220663903659185308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff6d9d3c8ee0a2a4b99712e01ec6b28a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Beetle: {fileID: 6068678730430867567}
-  Beetle_Stats: {fileID: 1854431931656254605}
-  food: {fileID: 852127527456003346, guid: bcb8054ae647ed94a831c8e784b0e406, type: 3}
-  spawner: {fileID: 1351219323160973318, guid: b35bf392e31fd0e44a0fa40420712f02, type: 3}
-  Insfood: []
-  target: {fileID: 0}
-  kids:
-  - {fileID: 4220663903659185308}
-  - {fileID: 700446733517527620, guid: f6bc03dbb7bf0a04dad0bf189a83678a, type: 3}
 --- !u!114 &1854431931656254605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +240,7 @@ MonoBehaviour:
   Hunger: 100
   speed: 3.5
   detectRange: 10
+  age: 0
 --- !u!54 &1456835572174747757
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -287,6 +268,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3297721700157294972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4220663903659185308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5d83ff7cf8fd942918ef43c93219f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 6068678730430867567}
+  target: {fileID: 0}
+  food: {fileID: 0}
+  detect: 0
+  foundtarget: 0
+  Range: 50
+  Insfood: []
+--- !u!114 &3963300792144779070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4220663903659185308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe139d8cef326c41bd12c3a1eb94dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kids:
+  - {fileID: 700446733517527620, guid: f6bc03dbb7bf0a04dad0bf189a83678a, type: 3}
+  - {fileID: 4220663903659185308}
 --- !u!1 &5621260766753398481
 GameObject:
   m_ObjectHideFlags: 0
