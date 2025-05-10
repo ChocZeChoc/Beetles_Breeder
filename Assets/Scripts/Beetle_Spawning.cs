@@ -1,19 +1,29 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Beetle_Spawning : MonoBehaviour
 {
     [SerializeField] private GameObject beetleSpawner;
     [SerializeField] private GameObject males;
     [SerializeField] private GameObject females;
-    [SerializeField] private int startBeetleAmount = 10;
-
-    [SerializeField] private float Range = 50F;
+     private int startBeetleAmount;
+    
+    private float Range = 45F;
 
     public GameObject Sim;
+
+    public UI_Controls uI_Controls;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void OnEnable()
+    {
+
+        startBeetleAmount = uI_Controls.StartBeetles();
+    }
+
     void Start()
     {
         SpawnBeetle(startBeetleAmount);
+        Debug.Log(startBeetleAmount);
     }
 
     // Update is called once per frame

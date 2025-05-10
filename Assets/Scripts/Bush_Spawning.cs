@@ -12,7 +12,7 @@ public class Bush_Spawning : MonoBehaviour
     public List<GameObject> Insfood = new List<GameObject>();
     List<GameObject> Insbush = new List<GameObject>();
 
-    public int bush_Amount = 30;
+    public int bush_Amount;
     private int food_Amount = 3;
 
     private float foodRate = 10;
@@ -23,11 +23,19 @@ public class Bush_Spawning : MonoBehaviour
 
     public GameObject Sim_Food;
     public GameObject Sim_Bush;
+
+    public UI_Controls uI_Controls;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    private void OnEnable()
+    {
+        bush_Amount = uI_Controls.StartBush();
+    }
+
+    void Start()
     {
         SpawnBush();
-        
+        Debug.Log(bush_Amount);
+        Debug.Log(food_Amount);
         
     }
 
