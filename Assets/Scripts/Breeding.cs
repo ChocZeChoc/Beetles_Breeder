@@ -45,10 +45,15 @@ public class Breeding : MonoBehaviour
         if (breedingTimer <= 0)
         {
             kid = Instantiate(kids[Random.Range(0, kids.Length)], currentPos, Quaternion.identity,Sim.transform);
-            kid.GetComponent<Beetle_Stats>().speed = Random.Range(Stats.speed - Mutation, Stats.speed + Mutation);
             kid.GetComponent<Beetle_Stats>().detectRange = Random.Range(Stats.detectRange - Mutation, Stats.detectRange + Mutation);
             kid.GetComponent<Beetle_Stats>().Hunger = 30;
             breedingTimer = 10;
+            if (Stats.speed > 1)
+            {
+                kid.GetComponent<Beetle_Stats>().speed = Random.Range(Stats.speed - Mutation, Stats.speed + Mutation);
+            }
+            else kid.GetComponent<Beetle_Stats>().speed = 0;
+            
             //Debug.Log(breedingTimer);
             return;
         }

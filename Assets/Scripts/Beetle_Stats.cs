@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Beetle_Stats : MonoBehaviour
 {
-    public int Hunger = 100;
+    public int Hunger = 120;
     public float speed;
     public float detectRange;
     private bool starving = false;
     private float dyingTime = 20f;
     public float age = 0;
     private float maxAge = 60;
+    private float hungerTime = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         speed = Random.Range(1, 50);
-        detectRange = Random.Range(1, 15);
+        detectRange = Random.Range(1, 50);
     }
 
     // Update is called once per frame
@@ -85,7 +86,11 @@ public class Beetle_Stats : MonoBehaviour
         {
             yield return null;
             Hunger--;
-            yield return new WaitForSeconds(1f/speed); 
+            if (speed <= 0)
+            {
+                Hunger = 0;
+            }
+            else { yield return new WaitForSeconds(hungerTime / speed); }
             StartCoroutine(Living());
         }
     }
