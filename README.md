@@ -1,1 +1,1 @@
-Mini-project for AI course at Medialogy
+Mini-project for AI course at Medialogy by Nathan
