@@ -15,7 +15,7 @@ public class Bush_Spawning : MonoBehaviour
     public int bush_Amount;
     private int food_Amount = 3;
 
-    private float foodRate = 10;
+    private float foodRate = 20;
     private float bush_Height = 0.7f;
     private float food_Height = 1.5f;
 
@@ -34,8 +34,8 @@ public class Bush_Spawning : MonoBehaviour
     void Start()
     {
         SpawnBush();
-        Debug.Log(bush_Amount);
-        Debug.Log(food_Amount);
+        //Debug.Log(bush_Amount);
+        //Debug.Log(food_Amount);
         
     }
 

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using System.IO;
+using System;
 
 public class Display_Counter : MonoBehaviour
 {
@@ -26,16 +28,31 @@ public class Display_Counter : MonoBehaviour
 
     private float range;
     private float avgRange;
+
+    private string filename = "";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void OnEnable()
+    {
+        Application.logMessageReceived += Log;
+    }
+
+    private void OnDisable()
+    {
+        Application.logMessageReceived -= Log;
+    }
+
+    private void Log(string logString, string stackTrace, LogType type)
+    {
+        TextWriter tw = new StreamWriter(filename, true);
+        tw.WriteLine("[" + System.DateTime.Now + "]" + logString);
+        tw.Close();
+    }
+
     void Start()
     {
         StartCoroutine(Display());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        filename = Application.dataPath + "/Logfile.txt";
     }
 
     IEnumerator Display()
@@ -59,9 +76,10 @@ public class Display_Counter : MonoBehaviour
         }
         avgSpeed = speed / allBeetles.Count;
         avgRange = range / allBeetles.Count;
-        avg_Speed.text = "Average Speed: " + (avgSpeed).ToString();
-        avg_Range.text = "Average Range: " + (avgRange).ToString();
-        total_Beetles.text = "Total Beetles: " + allBeetles.Count.ToString();
+        avg_Speed.text = "|Average Speed: |" + (avgSpeed).ToString();
+        avg_Range.text = "|Average Range: |" + (avgRange).ToString();
+        total_Beetles.text = "|Total Beetles: |" + allBeetles.Count.ToString();
+        //Debug.Log(total_Beetles.text + avg_Speed.text + avg_Range.text);
         StartCoroutine(Display());
     }
 }

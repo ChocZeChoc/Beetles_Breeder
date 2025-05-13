@@ -23,7 +23,7 @@ public class Beetle_Spawning : MonoBehaviour
     void Start()
     {
         SpawnBeetle(startBeetleAmount);
-        Debug.Log(startBeetleAmount);
+        //Debug.Log(startBeetleAmount);
     }
 
     // Update is called once per frame
