@@ -21,11 +21,10 @@ public class UI_Controls : MonoBehaviour
     public int startBushes;
     public int startFoods;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private void Start()
     {
-        //PlayerPrefs.SetInt("Beetles", 10);
-        //PlayerPrefs.SetInt("Bushes", 25);
-        //PlayerPrefs.SetInt("Foods", 3);
+        
         Beetles_Amount.text = PlayerPrefs.GetInt("Beetles").ToString();
         Bushes_Amount.text = PlayerPrefs.GetInt("Bushes").ToString();
     }
@@ -52,7 +51,9 @@ public class UI_Controls : MonoBehaviour
 
     public void Start_Sim()
     {
-        
+        PlayerPrefs.GetInt("Beetles", 10);
+        PlayerPrefs.GetInt("Bushes", 10);
+        PlayerPrefs.GetInt("Foods", 3);
         SimElements.SetActive(true);
         
     }
